@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live User Data</title>
+  <script>
+    async function fetchUsers() {
+      const res = await fetch('/users');
+      const users = await res.json();
+      const tbody = document.getElementById('data');
+      tbody.innerHTML = '';
+      users.forEach(user => {
+        const row = `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.age}</td></tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+
+    setInterval(fetchUsers, 2000); 
+    window.onload = fetchUsers;
+  </script>
+</head>
+<body align = "center">
+  <h2>Live Submitted Data</h2>
+  <table border="1" align = "center">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Age</th></tr>
+    </thead>
+    <tbody id="data"></tbody>
+  </table>
+</body>
+</html>
