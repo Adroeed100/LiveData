@@ -20,6 +20,6 @@ A lightweight JavaScript-based project that simulates live data updates in the b
    ```bash
    git clone https://github.com/Adroeed100/LiveData.git
    cd LiveData
-   node main.js
+   node server.js
 
  
